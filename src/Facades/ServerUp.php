@@ -1,5 +1,5 @@
 <?php
-namespace Kaankilic\FpdfInvoice\Facades;
+namespace Kaankilic\ServerUp\Facades;
 use Illuminate\Support\Facades\Facade;
  
 class ServerUp extends Facade {

@@ -1,5 +1,5 @@
 <?php 
-namespace Kaankilic\InstaPack\Providers;
+namespace Kaankilic\ServerUp\Providers;
 use Illuminate\Support\ServiceProvider;
 use Config;
 class InstaPackServiceProvider extends ServiceProvider {

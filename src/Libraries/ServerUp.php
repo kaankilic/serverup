@@ -1,5 +1,4 @@
 <?php 
-include("SocketResponse.php");
 namespace Kaankilic\ServerUp\Libraries;
 class ServerUp{
 	protected $Hostname;
