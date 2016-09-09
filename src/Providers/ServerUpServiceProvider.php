@@ -10,7 +10,7 @@ class ServerUpServiceProvider extends ServiceProvider {
      * @return void
     */
   public function boot(\Illuminate\Routing\Router $router){
-   $this->app->bind('ServerUp', 'Kaankilic\ServerUp\Facades\ServerUp' );
+   $this->app->bind('ServerUp', 'Kaankilic\ServerUp\Libraries\ServerUp' );
   }
  
   /**

@@ -1,5 +1,7 @@
 <?php 
 namespace Kaankilic\ServerUp\Libraries;
+use Illuminate\Support\Collection;
+
 class ServerUp{
 	protected $Hostname;
 	protected $Port;
