@@ -1,0 +1,19 @@
+{
+    "name": "kaankilic/serverup",
+    "description": "Server Uptime Checker Tool",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kaan Kılıç",
+            "email": "bl4cksta@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kaankilic\\ServerUp\\": "src/"
+        }
+    }
+}
