@@ -2,7 +2,7 @@
 namespace Kaankilic\ServerUp\Providers;
 use Illuminate\Support\ServiceProvider;
 use Config;
-class InstaPackServiceProvider extends ServiceProvider {
+class ServerUpServiceProvider extends ServiceProvider {
   protected $defer = false;
 
    /**
