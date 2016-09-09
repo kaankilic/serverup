@@ -96,8 +96,4 @@ class ServerUp{
 	 	return $this->SocketResponses;
 	}
 }
-$s = new ServerUp("facebook.com",80,100);
-$s->ping();
-$s->checkAvg();
-var_dump($s->getIsTotalyAvail());
 ?>
