@@ -34,6 +34,10 @@ class ServerUp{
 	}
 
 	public function setHostname($Hostname){
+		$SchemaExpression = '#^http://|https://#';
+		if (preg_match($SchemaExpression, $Hostname) === 1) {
+			$Hostname = preg_replace($SchemaExpression, "", $Hostname);
+		}
 		$this->Hostname = $Hostname;
 	}
 
@@ -66,7 +70,6 @@ class ServerUp{
 		$this->isTotalyAvail = $isAvailable;
 	}
 	public function checkAvg(){
-		$this->AvgDuration = 0;
 		$TotalLoad = 0;
 		$this->setIsTotalyAvail(true);
 		foreach ($this->SocketResponses as $key => $value) {
@@ -82,7 +85,7 @@ class ServerUp{
 		}
 		return $this->AvgDuration;
 	}
-	function ping() {
+	public function ping() {
 		for ($i=0; $i < $this->getSampleAmount(); $i++) { 
 			$tB = microtime(true); 
 			$fP = @fSockOpen($this->getHostname(), $this->getPort(), $errno, $errstr, $this->getTimeoutDuration());
