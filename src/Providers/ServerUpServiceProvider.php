@@ -1,8 +1,6 @@
 <?php 
 namespace Kaankilic\ServerUp\Providers;
 use Illuminate\Support\ServiceProvider;
-use Kaankilic\
-use Config;
 class ServerUpServiceProvider extends ServiceProvider {
   protected $defer = false;
 
