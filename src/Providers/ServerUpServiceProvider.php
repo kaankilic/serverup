@@ -1,6 +1,7 @@
 <?php 
 namespace Kaankilic\ServerUp\Providers;
 use Illuminate\Support\ServiceProvider;
+use Kaankilic\
 use Config;
 class ServerUpServiceProvider extends ServiceProvider {
   protected $defer = false;
@@ -11,9 +12,7 @@ class ServerUpServiceProvider extends ServiceProvider {
      * @return void
     */
   public function boot(\Illuminate\Routing\Router $router){
-    $this->app['ServerUp'] = $this->app->share(function($app){
-      return new ServerUp();
-    });
+   $this->app->bind('ServerUp', 'Kaankilic\ServerUp\Facades\ServerUp' );
   }
  
   /**
