@@ -21,7 +21,7 @@ class ServerUp{
 			$this->setHostname($Hostname);
 		}
 		if (is_null($Port)) {
-			$this->setHostname(config('serverup.port'));
+			$this->setPort(config('serverup.port'));
 		}else{
 			$this->setPort($Port);
 		}
