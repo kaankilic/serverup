@@ -13,9 +13,9 @@ You can install the package via composer:
 ```sh
 composer require kaankilic/serverup
 ```
-or require the tool in your composer.json file.
+or require the tool in your **composer.json** file.
 ```sh
-"kaankilic/serverup": "master"
+"kaankilic/serverup": "^2.0"
 ```
 then run `composer install` command from your command line.
 
@@ -32,6 +32,12 @@ After that, you need to register the facade in the aliases key of your config/ap
 	... aliases
 	'ServerUp'=> Kaankilic\ServerUp\Facades\ServerUp::class,
 )
+```
+
+Finally, from the command line again, publish the default configuration file:
+
+```php
+php artisan vendor:publish --provider="Kaankilic\ServerUp\Providers/ServerUpServiceProvider"
 ```
 
 ## Usage
