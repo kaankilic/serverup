@@ -3,6 +3,9 @@
 Basic useful Server Uptime and connection checker tool.
 
 [![Build Status](https://travis-ci.org/kaankilic/serverup.svg?branch=master)](https://travis-ci.org/kaankilic/serverup)
+[![Total Downloads](https://poser.pugx.org/kaankilic/serverup/downloads)](https://packagist.org/packages/kaankilic/serverup)
+[![Latest Unstable Version](https://poser.pugx.org/kaankilic/serverup/v/unstable)](https://packagist.org/packages/kaankilic/serverup)
+[![License](https://poser.pugx.org/kaankilic/serverup/license)](https://packagist.org/packages/kaankilic/serverup)
 
 ## Installation
 You can install the package via composer:
