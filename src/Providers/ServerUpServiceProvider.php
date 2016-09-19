@@ -22,6 +22,7 @@ class ServerUpServiceProvider extends ServiceProvider {
     * @return void
   */
   public function register(){
+    $this->mergeConfigFrom(__DIR__ . '/../../config/serverup.php', 'serverup');
     return array('ServerUp');
   }
 }
