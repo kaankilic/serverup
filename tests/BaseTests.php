@@ -7,8 +7,7 @@ use Kaankilic\ServerUp\Facades\ServerUp;
  *
  * @package Tests
  */
-class BaseTests extends TestCase
-{
+class BaseTests extends TestCase{
 
     /**
      * Test basic slugging functionality.
