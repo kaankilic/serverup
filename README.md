@@ -37,7 +37,7 @@ After that, you need to register the facade in the aliases key of your config/ap
 Finally, from the command line again, publish the default configuration file:
 
 ```php
-php artisan vendor:publish --provider="Kaankilic\ServerUp\Providers/ServerUpServiceProvider"
+php artisan vendor:publish --provider="Kaankilic\ServerUp\Providers\ServerUpServiceProvider"
 ```
 
 ## Usage
