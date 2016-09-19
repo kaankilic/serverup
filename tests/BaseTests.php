@@ -17,7 +17,7 @@ class BaseTests extends TestCase{
     public function testSimpleCase()
     {
         $ping = ServerUp::ping('http://google.com',80);
-        $this->assertTrue(!ServerUp::getIsTotalyAvail());
+        $this->assertTrue(ServerUp::getIsTotalyAvail());
     }
 
 }
