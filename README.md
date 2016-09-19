@@ -1,7 +1,9 @@
 # ServerUp Tool
 
 Basic useful Server Uptime and connection checker tool.
+
 [![Build Status](https://travis-ci.org/kaankilic/serverup.svg?branch=master)](https://travis-ci.org/kaankilic/serverup)
+
 ## Installation
 You can install the package via composer:
 

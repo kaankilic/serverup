@@ -10,7 +10,7 @@ use Kaankilic\ServerUp\Facades\ServerUp;
 class BaseTests extends TestCase{
 
     /**
-     * Test basic slugging functionality.
+     * Test basic ping functionality with trying to send ping to google
      *
      * @test
      */
