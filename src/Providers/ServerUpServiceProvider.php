@@ -10,10 +10,10 @@ class ServerUpServiceProvider extends ServiceProvider {
      * @return void
     */
   public function boot(\Illuminate\Routing\Router $router){
-   $this->app->bind('ServerUp', 'Kaankilic\ServerUp\Libraries\ServerUp' );
-   $this->publishes([
-      __DIR__.'/../config/serverup.php' => config_path('serverup.php')
+    $this->publishes([
+      __DIR__.'/../../config/serverup.php' => config_path('serverup.php')
     ],'config');
+   $this->app->bind('ServerUp', 'Kaankilic\ServerUp\Libraries\ServerUp' );
   }
  
   /**
@@ -22,7 +22,7 @@ class ServerUpServiceProvider extends ServiceProvider {
     * @return void
   */
   public function register(){
-    $this->mergeConfigFrom(__DIR__ . '/../config/serverup.php', 'serverup');
+    $this->mergeConfigFrom(__DIR__ . '/../../config/serverup.php', 'serverup');
     return array('ServerUp');
   }
 }
