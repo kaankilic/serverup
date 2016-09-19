@@ -11,6 +11,9 @@ class ServerUpServiceProvider extends ServiceProvider {
     */
   public function boot(\Illuminate\Routing\Router $router){
    $this->app->bind('ServerUp', 'Kaankilic\ServerUp\Libraries\ServerUp' );
+   $this->publishes([
+      __DIR__.'/../../config/serverup.php' => base_path('config/serverup.php')
+    ]);
   }
  
   /**

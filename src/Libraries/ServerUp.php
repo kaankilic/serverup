@@ -15,16 +15,24 @@ class ServerUp{
 	const DEFAULT_TIMEOUT_DURATION=10;
 
 	public function __construct($Hostname=NULL,$Port=NULL,$SampleAmount=NULL,$TimeoutDuration=NULL){
-		$this->setHostname($Hostname);
-		$this->setPort($Port);
+		if (is_null($Hostname)) {
+			$this->setHostname(config('serverup.hostname'));
+		}else{
+			$this->setHostname($Hostname);
+		}
+		if (is_null($Port)) {
+			$this->setHostname(config('serverup.port'));
+		}else{
+			$this->setPort($Port);
+		}
 		if (is_null($SampleAmount)) {
-			$this->setSampleAmount(self::DEFAULT_SAMPLE_AMOUNT);
+			$this->setSampleAmount(config('serverup.sample_amount'));
 		}else{
 			$this->setSampleAmount($TimeoutDuration);
 		}
 
 		if (is_null($TimeoutDuration)) {
-			$this->setTimeoutDuration(self::DEFAULT_TIMEOUT_DURATION);
+			$this->setTimeoutDuration(config('serverup.timeout_duration'));
 		}else{
 			$this->setTimeoutDuration($TimeoutDuration);
 		}
@@ -85,7 +93,13 @@ class ServerUp{
 		}
 		return $this->AvgDuration;
 	}
-	public function ping() {
+	public function ping($Hostname=NULL,$Port=NULL) {
+		if (!is_null($Hostname)) {
+			$this->setHostname($Hostname);
+		}
+		if (!is_null($Port)) {
+			$this->setPort($Port);
+		}
 		for ($i=0; $i < $this->getSampleAmount(); $i++) { 
 			$tB = microtime(true); 
 			$fP = @fSockOpen($this->getHostname(), $this->getPort(), $errno, $errstr, $this->getTimeoutDuration());
@@ -96,6 +110,7 @@ class ServerUp{
 		 	$tA = microtime(true);
 			$this->SocketResponses[] = new SocketResponse(round((($tA - $tB) * 1000), 0),$isUp);
 	 	}
+	 	$this->checkAvg();
 	 	return $this->SocketResponses;
 	}
 }
