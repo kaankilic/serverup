@@ -42,15 +42,21 @@ php artisan vendor:publish --provider="Kaankilic\ServerUp\Providers\ServerUpServ
 ```
 
 ## Usage
-You need to set Hostname and Port values for the ping values.
+**Simple Usage**
+```php
+	ServerUp::ping("http://facebook.com",80);
+	ServerUp::getIsTotalyAvail(); //returns boolean value
+```
+**Advanced Usage**
+
+You must define Hostname and Port values for the ping values.Then, you can get availibility of ip or domain with `ping()` facades. Example code is on the below:
+
 ```php
 	ServerUp::setHostname("http://facebook.com");
 	ServerUp::setPort(80);
-	dd(ServerUp::ping());
+	ServerUp::setSampleAmount(50);
+	ServerUp::setTimeoutDuration(10); // unit is integer based milliseconds
+	ServerUp::getIsTotalyAvail(); //returns boolean value
+	var_dump(ServerUp::ping()); //returns the SocketResponses for each ping request
 ```
-You can get availibility of ip or domain with ping() facades. Example code is on the below:
-```php
-	ServerUp::setHostname("http://facebook.com");
-	ServerUp::setPort(80);
-	dd(ServerUp::ping());
-```
+
