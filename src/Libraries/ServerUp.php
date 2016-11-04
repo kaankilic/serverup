@@ -106,9 +106,11 @@ class ServerUp{
 			$ch = curl_init();
 			$ch = curl_setopt_array($ch, array(
 			    CURLOPT_RETURNTRANSFER => 1,
-			    CURLOPT_URL => 'http://testcURL.com'
+			    CURLOPT_URL => $this->getHostname()
 			));
-			$ch = curl_exec($ch);
+			curl_setopt($ch, CURLOPT_CONNECTTIMEOUT,$this->getTimeoutDuration()); 
+			curl_setopt($ch, CURLOPT_TIMEOUT, $this->getTimeoutDuration()); //timeout in seconds			
+			curl_exec($ch);
 			$isUp = false;
 			if(!curl_errno($ch)){
 				if(curl_getinfo($ch, CURLINFO_HTTP_CODE)==20){
