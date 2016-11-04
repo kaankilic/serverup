@@ -102,12 +102,9 @@ class ServerUp{
 		}
 		for ($i=0; $i < $this->getSampleAmount(); $i++) { 
 			$tB = microtime(true); 
-			$fP = @fSockOpen($this->getHostname(), $this->getPort(), $errno, $errstr, $this->getTimeoutDuration());
 			$ch = curl_init();
-			$ch = curl_setopt_array($ch, array(
-			    CURLOPT_RETURNTRANSFER => 1,
-			    CURLOPT_URL => $this->getHostname()
-			));
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER,1); 
+			curl_setopt($ch, CURLOPT_URL,$this->getHostname()); 
 			curl_setopt($ch, CURLOPT_CONNECTTIMEOUT,$this->getTimeoutDuration()); 
 			curl_setopt($ch, CURLOPT_TIMEOUT, $this->getTimeoutDuration()); //timeout in seconds			
 			curl_exec($ch);
