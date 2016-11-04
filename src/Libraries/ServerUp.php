@@ -110,7 +110,7 @@ class ServerUp{
 			curl_exec($ch);
 			$isUp = false;
 			if(!curl_errno($ch)){
-				if(curl_getinfo($ch, CURLINFO_HTTP_CODE)==20){
+				if(curl_getinfo($ch, CURLINFO_HTTP_CODE)==200){
 					$isUp = true;
 				}
 			}
