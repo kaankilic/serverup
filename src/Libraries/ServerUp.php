@@ -103,10 +103,19 @@ class ServerUp{
 		for ($i=0; $i < $this->getSampleAmount(); $i++) { 
 			$tB = microtime(true); 
 			$fP = @fSockOpen($this->getHostname(), $this->getPort(), $errno, $errstr, $this->getTimeoutDuration());
-			$isUp = true;
-			if (!$fP) { 
-				$isUp = false;
-			} 
+			$ch = curl_init();
+			$ch = curl_setopt_array($ch, array(
+			    CURLOPT_RETURNTRANSFER => 1,
+			    CURLOPT_URL => 'http://testcURL.com'
+			));
+			$ch = curl_exec($ch);
+			$isUp = false;
+			if(!curl_errno($ch)){
+				if(curl_getinfo($ch, CURLINFO_HTTP_CODE)==20){
+					$isUp = true;
+				}
+			}
+			$ch = curl_close($ch);
 		 	$tA = microtime(true);
 			$this->SocketResponses[] = new SocketResponse(round((($tA - $tB) * 1000), 0),$isUp);
 	 	}
